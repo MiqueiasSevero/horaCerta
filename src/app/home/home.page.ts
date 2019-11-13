@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { Storage} from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +9,20 @@ import { NavController } from '@ionic/angular';
 })
 export class HomePage {
 
-  constructor(private navCtrl: NavController) {}
+  listaHoraCerta = [];
+
+
+  constructor(private navCtrl: NavController, private storage:Storage) {}
   
+  ionViewWillEnter(){
+      this.storage.get('listaHoraCerta').then((value :any)=>{
+          this.listaHoraCerta = JSON.parse(value);
+      });
+
+  }
+
+
+
   cadastrarHoraCerta() {
     //alert("chegou");
     this.navCtrl.navigateForward('/cadastrar-hora-certa');
