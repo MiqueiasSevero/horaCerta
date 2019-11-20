@@ -71,7 +71,7 @@ export class CadastrarHoraCertaPage implements OnInit {
        this.storage.set('listaHoraCerta', JSON.stringify(listaHoraCerta));
     });
   
-  
+  this.formCadHoraCerta.reset();
   
   
   
