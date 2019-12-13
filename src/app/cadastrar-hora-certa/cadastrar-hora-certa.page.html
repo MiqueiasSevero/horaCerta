@@ -8,45 +8,44 @@
 </ion-header>
 
 <ion-content>
+  <form [formGroup]="formCadastrarHoraCerta" (ngSubmit)="cadastrarHoraCerta()">
+    <ion-item>
+      <ion-label>Data</ion-label>
+      <ion-datetime formControlName="data" displayFormat="DD/MM/YYYY" cancelText="Cancelar" doneText="Pronto"></ion-datetime>
+    </ion-item>
 
-  <form [formGroup]="formCadHoraCerta" (ngSubmit)="cadastrarHoraCerta()">
+    <ion-item>
+      <ion-label>Hora</ion-label>
+      <ion-datetime formControlName="hora" displayFormat="HH:mm" cancelText="Cancelar" doneText="Pronto"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea formControlName="falarTexto" placeholder="Escreva o que devo falar..."></ion-textarea>
+    </ion-item>
+
+    <ion-list>
+      <ion-radio-group formControlName="cor">
+        <ion-list-header>
+          <ion-label>Cor</ion-label>
+        </ion-list-header>
+    
         <ion-item>
-          <ion-label>Data</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" formControlName="data" cancelText="Cancelar" doneText="Pronto"></ion-datetime>
+          <ion-label>Preto</ion-label>
+          <ion-radio slot="start" value="#000"></ion-radio>
         </ion-item>
-
+    
         <ion-item>
-          <ion-label>Hora</ion-label>
-          <ion-datetime displayFormat="HH:mm" formControlName="hora" cancelText="Cancelar" doneText="Pronto"></ion-datetime>
+          <ion-label>Azul</ion-label>
+          <ion-radio slot="start" value="#000dff"></ion-radio>
         </ion-item>
+    
         <ion-item>
-          <ion-textarea formControlName="falarTexto" placeholder="Escreva o que devo Falar"></ion-textarea>
+          <ion-label>Verde</ion-label>
+          <ion-radio slot="start" value="#00ff0d"></ion-radio>
         </ion-item>
+      </ion-radio-group>
+    </ion-list>
 
-        <ion-list>
-          <ion-radio-group formControlName="cor">
-            <ion-list-header>
-              <ion-label>Cor</ion-label>
-            </ion-list-header>
-        
-            <ion-item>
-              <ion-label>Preto</ion-label>
-              <ion-radio color="dark" slot="start" value="#000" ></ion-radio>
-            </ion-item>
-        
-            <ion-item>
-              <ion-label>Azul</ion-label>
-              <ion-radio  color="primary" slot="start" value="#000dff"></ion-radio>
-            </ion-item>
-        
-            <ion-item>
-              <ion-label>Verde</ion-label>
-              <ion-radio color="success" slot="start" value="#00ff0d"></ion-radio>
-            </ion-item>
-          </ion-radio-group>
-        </ion-list>
-
-        <ion-button type="submit"  [disabled]="formCadHoraCerta.invalid" color="success">Cadastrar</ion-button>
-</form>
-
+    <ion-button type="submit" [disabled]="formCadastrarHoraCerta.invalid" expand="block">Cadastrar</ion-button>
+  </form>
 </ion-content>
